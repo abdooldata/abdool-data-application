@@ -1,4 +1,4 @@
-**Abdool Data App** wata web application ce da ke baiwa masu amfani damar:
+**Abdool Data Application** wata web application ce da ke baiwa masu amfani damar:
 - Yin rijista da shiga (register & login),
 - Uploading datasets (CSV/JSON),
 - Yin biyan kudi ta hanyar Paystack don amfani da wasu siffofi,
@@ -17,7 +17,7 @@
 Zaka iya ziyartar app ɗin nan:  
 👉 [https://abdool-data-application.github.io/abdool-data-app](https://abdool-data-application.github.io/abdool-data-app)
 
-(Maye gurbin `abdool-data-application` da GitHub username ɗinka)
+( `abdool-data-application` )
 
 ## Yadda ake amfani
 
