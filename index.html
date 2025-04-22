@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ha">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +16,7 @@
 <header class="bg-white shadow p-4 flex justify-between items-center">
   <h1 class="text-xl font-bold">Abdool Data App</h1>
   <nav class="space-x-4">
+    <button onclick="showSection('landing')" class="text-blue-600 hover:underline">Home</button>
     <button onclick="showSection('login')" class="text-blue-600 hover:underline">Login</button>
     <button onclick="showSection('signup')" class="text-blue-600 hover:underline">Sign Up</button>
     <button onclick="showSection('dashboard')" class="text-blue-600 hover:underline">Dashboard</button>
@@ -26,17 +27,17 @@
 
 <!-- Landing Page -->
 <section class="p-10 text-center" id="landing">
-  <h2 class="text-3xl font-semibold mb-4">Welcome to Abdool Data Appication</h2>
-  <p class="text-gray-600">Upload, view, and manage your data securely and easily.</p>
+  <h2 class="text-3xl font-semibold mb-4">Barka da zuwa Abdool Data App</h2>
+  <p class="text-gray-600">Yi rajista, duba dashboard, upload datasets, da kuma biyan kudi cikin sauki.</p>
 </section>
 
-<!-- Sign Up -->
+<!-- Signup -->
 <section id="signup" class="hidden-section flex items-center justify-center min-h-screen">
   <div class="bg-white p-8 rounded-xl shadow-md w-full max-w-md">
     <h2 class="text-2xl font-bold mb-6 text-center">Create an Account</h2>
-    <form id="signupForm" onsubmit="event.preventDefault(); showVerification()" class="space-y-4">
+    <form onsubmit="event.preventDefault(); simulateEmailVerification()" class="space-y-4">
       <input id="signupEmail" type="email" placeholder="Email" required class="w-full px-4 py-2 border rounded" />
-      <input id="signupPassword" type="password" placeholder="Password" required class="w-full px-4 py-2 border rounded" />
+      <input type="password" placeholder="Password" required class="w-full px-4 py-2 border rounded" />
       <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded">Sign Up</button>
     </form>
   </div>
@@ -46,10 +47,11 @@
 <section id="verification" class="hidden-section flex items-center justify-center min-h-screen">
   <div class="bg-white p-8 rounded-xl shadow-md w-full max-w-md">
     <h2 class="text-2xl font-bold mb-6 text-center">Email Verification</h2>
-    <p class="text-sm text-gray-600 mb-6 text-center">A verification code has been sent to your email. Please enter it below.</p>
-    <input id="verificationCode" type="text" placeholder="Enter Verification Code" required class="w-full px-4 py-2 border rounded mb-4" />
-    <button onclick="verifyEmail()" class="w-full bg-blue-600 text-white py-2 rounded">Verify Email</button>
-    <p class="mt-6 text-center text-sm text-gray-500">If you didn't receive the email, check your spam folder or resend the verification link.</p>
+    <p class="mb-4 text-gray-600">Saka lambar da aka aiko maka: <strong>123456</strong></p>
+    <form onsubmit="event.preventDefault(); verifyCode()" class="space-y-4">
+      <input id="codeInput" type="text" placeholder="Enter code" required class="w-full px-4 py-2 border rounded" />
+      <button type="submit" class="w-full bg-green-600 text-white py-2 rounded">Verify</button>
+    </form>
   </div>
 </section>
 
@@ -89,14 +91,12 @@
 <section id="payment" class="hidden-section flex items-center justify-center min-h-screen">
   <div class="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full">
     <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">Pay with Paystack</h2>
-    <p class="text-sm text-gray-500 text-center mb-6">Secure payment for your Abdool Data Applicatio plan.</p>
-    <input id="email" type="email" placeholder="auh439@gmail.com"
-      class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4" required />
-    <button onclick="payWithPaystack()"
-      class="w-full bg-blue-600 hover:bg-blue-700 transition text-white font-semibold py-2 px-4 rounded-lg">
-      Pay ₦0
+    <p class="text-sm text-gray-500 text-center mb-6">Saka adadin kudin da kake so.</p>
+    <input id="email" type="email" placeholder="Email" class="w-full px-4 py-2 border rounded-lg mb-4" required />
+    <input id="amount" type="number" placeholder="Adadin kudi (₦)" class="w-full px-4 py-2 border rounded-lg mb-4" required min="100" />
+    <button onclick="payWithPaystack()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg">
+      Biya
     </button>
-    <p class="mt-6 text-center text-sm text-gray-500">You will be redirected after successful payment.</p>
   </div>
 </section>
 
@@ -106,39 +106,33 @@
     document.getElementById(id).classList.remove('hidden-section');
   }
 
-  // Simulate sending verification email
-  function showVerification() {
-    const email = document.getElementById('signupEmail').value;
-    if (email) {
-      alert('A verification email has been sent to ' + email);
-      // Simulate an email being sent to the user
-      setTimeout(() => {
-        showSection('verification');
-      }, 1000); // Simulate delay in sending email
-    }
+  function simulateEmailVerification() {
+    showSection('verification');
   }
 
-  // Simulate verifying the email
-  function verifyEmail() {
-    const code = document.getElementById('verificationCode').value;
-    if (code === '123456') { // In real scenarios, the code is generated and checked against the backend
-      alert('Email verified successfully!');
-      showSection('dashboard'); // Show the dashboard after verification
+  function verifyCode() {
+    const code = document.getElementById('codeInput').value;
+    if (code === '123456') {
+      alert('An tabbatar da email!');
+      showSection('dashboard');
     } else {
-      alert('Invalid verification code. Please try again.');
+      alert('Lambar da ka saka ba daidai ba ce.');
     }
   }
 
   function payWithPaystack() {
     const email = document.getElementById('email').value;
-    if (!email) {
-      alert("Please enter your email");
+    const amount = parseInt(document.getElementById('amount').value);
+
+    if (!email || !amount || amount < 100) {
+      alert("Da fatan za a saka email da adadin da ya fi ₦100.");
       return;
     }
+
     let handler = PaystackPop.setup({
       key: 'pk_live_fefa4cab21e99bd551e0979a445038b389d9cfea',
       email: email,
-      amount: 200000,
+      amount: amount * 100,
       currency: "NGN",
       ref: '' + Math.floor(Math.random() * 1000000000 + 1),
       callback: function(response) {
@@ -146,7 +140,7 @@
         showSection('dashboard');
       },
       onClose: function() {
-        alert('Payment window closed.');
+        alert('An rufe taga na biyan kudi.');
       }
     });
     handler.openIframe();
