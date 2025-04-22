@@ -1,41 +1,22 @@
-**Abdool Data Application** wata web application ce da ke baiwa masu amfani damar:
-- Yin rijista da shiga (register & login),
-- Uploading datasets (CSV/JSON),
-- Yin biyan kudi ta hanyar Paystack don amfani da wasu siffofi,
-- Gudanar da bayanan su cikin tsari.
+Abdool Data Application wata manhaja ce da ke bawa masu amfani damar:
 
-## Features
+Yin rajista da tabbatar da email
 
-- **Rijista da Shiga (Sign Up & Login)**
-- **Upload na Dataset**
-- **Dashboard don duba bayanai**
-- **Biyaa da Paystack** — Users na iya tura kudi daidai da abinda suke da shi
-- **Babu tilas sai an biya kafin a duba app** — amma zaka iya siyan siffofi masu ƙima
+Shiga cikin dashboard
 
-## Live Link
+Upload datasets
 
-Zaka iya ziyartar app ɗin nan:  
-👉 [https://abdool-data-application.github.io/abdool-data-app](https://abdool-data-application.github.io/abdool-data-app)
+Biya ta hanyar Paystack (ba dole bane kafin amfani)
 
-( `abdool-data-application` )
 
-## Yadda ake amfani
+Fasali
 
-1. Ziyarci shafin app.
-2. Yi rijista ko shiga (Login).
-3. Dubi dashboard ɗinka ko upload data.
-4. Idan kana son siyan wasu siffofi, yi amfani da **Paystack**.
-5. Bayan biyaa zaka iya samun damar yin siyayya da dika kudinka.
+Rajista da Email Verification – Mai amfani zai saka email, sannan zai ga code don tabbatarwa.
 
-## Built With
+Login – Shiga cikin dashboard dinka.
 
-- **HTML5**
-- **TailwindCSS**
-- **JavaScript**
-- **Paystack API**
-- **GitHub Pages** don hosting
+Dashboard – Duba bayanai da kayi upload.
 
-## Developer
+Upload – Ajiye datasets.
 
-Wannan app ɗin an ƙirƙira shi ne daga:  
-**Abdullahi (n.abdul)**
+Biyan Kudi – Biyan kudi ta Paystack ba tare da tilas ba, zaka iya tura duk abinda kake da shi, ba’a saka ₦25 charge ba, sai an cire daga abin da aka tura.
