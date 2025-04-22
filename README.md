@@ -1,7 +1,3 @@
-# abdool-data-application
-A apps For a happy of users 
-# Abdool Data App
-
 **Abdool Data App** wata web application ce da ke baiwa masu amfani damar:
 - Yin rijista da shiga (register & login),
 - Uploading datasets (CSV/JSON),
@@ -19,9 +15,9 @@ A apps For a happy of users
 ## Live Link
 
 Zaka iya ziyartar app ɗin nan:  
-👉 [https://USERNAME.github.io/abdool-data-app](https://USERNAME.github.io/abdool-data-app)
+👉 [https://abdool-data-application.github.io/abdool-data-app](https://abdool-data-application.github.io/abdool-data-app)
 
-(Maye gurbin `USERNAME` da GitHub username ɗinka)
+(Maye gurbin `abdool-data-application` da GitHub username ɗinka)
 
 ## Yadda ake amfani
 
@@ -29,7 +25,7 @@ Zaka iya ziyartar app ɗin nan:
 2. Yi rijista ko shiga (Login).
 3. Dubi dashboard ɗinka ko upload data.
 4. Idan kana son siyan wasu siffofi, yi amfani da **Paystack**.
-5. Bayan biyaa zaka iya samun damar duka siffofin.
+5. Bayan biyaa zaka iya samun damar yin siyayya da dika kudinka.
 
 ## Built With
 
@@ -42,4 +38,4 @@ Zaka iya ziyartar app ɗin nan:
 ## Developer
 
 Wannan app ɗin an ƙirƙira shi ne daga:  
-**Abdullahi (abdool-data-app)**
+**Abdullahi (n.abdul)**
