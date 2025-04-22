@@ -1,22 +1,28 @@
-Abdool Data Application wata manhaja ce da ke bawa masu amfani damar:
+# Abdool Data Application 
 
-Yin rajista da tabbatar da email
+Wannan manhaja ce mai sauki don:
+- Rajista da email
+- Login
+- Upload bayanai (datasets)
+- Biya ta hanyar Paystack
+- Tabbatar da email (simulation)
 
-Shiga cikin dashboard
+## Features
 
-Upload datasets
+- Full frontend in one HTML file
+- Beautiful TailwindCSS UI
+- Email verification simulation (random code)
+- Flexible Paystack Payment – user can input any amount
+- Upload functionality with file type restrictions
 
-Biya ta hanyar Paystack (ba dole bane kafin amfani)
+## Yadda zaka saka a GitHub Pages
 
+1. Ƙirƙiri sabuwar repo a GitHub.
+2. Upload `index.html` ɗin da ka samu.
+3. Je Settings > Pages, zaɓi branch `main`, folder `root`.
+4. Jira na dan lokaci, sai URL ya fito.
+5. Share link ɗinka!
 
-Fasali
+## License
 
-Rajista da Email Verification – Mai amfani zai saka email, sannan zai ga code don tabbatarwa.
-
-Login – Shiga cikin dashboard dinka.
-
-Dashboard – Duba bayanai da kayi upload.
-
-Upload – Ajiye datasets.
-
-Biyan Kudi – Biyan kudi ta Paystack ba tare da tilas ba, zaka iya tura duk abinda kake da shi, ba’a saka ₦25 charge ba, sai an cire daga abin da aka tura.
+MIT © Abdool
