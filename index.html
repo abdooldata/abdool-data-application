@@ -1,107 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>abdool-data-Application</title>
-    <script src="https://js.paystack.co/inline.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.0/dist/tailwind.min.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>abdool-data-Application</title>
+  <script src="https://js.paystack.co/inline.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.0/dist/tailwind.min.css" rel="stylesheet"/>
 </head>
 <body class="bg-gray-100 font-sans leading-normal tracking-normal">
 
-    <!-- Navbar -->
-    <nav class="bg-blue-600 p-4">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="#" class="text-white text-3xl font-bold">abdool-data-Application</a>
-            <div>
-                <button id="signup" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">Sign Up</button>
-                <button id="login" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">Login</button>
-            </div>
-        </div>
-    </nav>
+  <!-- Navbar -->
+  <nav class="bg-blue-600 p-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <a href="#" class="text-white text-2xl font-bold">abdool-data-Application</a>
+      <div>
+        <button id="signup" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">Sign Up</button>
+        <button id="login" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">Login</button>
+      </div>
+    </div>
+  </nav>
 
-    <!-- Main Content -->
-    <div id="main-content" class="p-4 max-w-7xl mx-auto">
-        <div id="dashboard" class="hidden">
-            <h2 class="text-2xl font-semibold">Welcome to Your Dashboard</h2>
-            <!-- Dashboard content -->
-            <div class="mt-4">
-                <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700" onclick="buyAirtime()">Buy Airtime</button>
-                <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700" onclick="buyData()">Buy Data</button>
-                <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700" onclick="buyCable()">Buy Cable</button>
-                <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700" onclick="payElectricity()">Pay Electricity</button>
-                <button class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700" onclick="complain()">File Complaint</button>
-                <button class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-700" onclick="viewHistory()">View History</button>
-            </div>
-        </div>
+  <!-- Main Content -->
+  <div id="main-content" class="p-4 max-w-4xl mx-auto">
 
-        <!-- SignUp/ Login Forms -->
-        <div id="signup-form" class="hidden">
-            <h2 class="text-2xl font-semibold">Sign Up</h2>
-            <form id="signup-form-content">
-                <input type="email" id="signup-email" placeholder="Email" class="border p-2 my-2 w-full" required>
-                <input type="password" id="signup-password" placeholder="Password" class="border p-2 my-2 w-full" required>
-                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">Sign Up</button>
-            </form>
-        </div>
-
-        <div id="login-form" class="hidden">
-            <h2 class="text-2xl font-semibold">Login</h2>
-            <form id="login-form-content">
-                <input type="email" id="login-email" placeholder="Email" class="border p-2 my-2 w-full" required>
-                <input type="password" id="login-password" placeholder="Password" class="border p-2 my-2 w-full" required>
-                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">Login</button>
-            </form>
-        </div>
+    <!-- Dashboard -->
+    <div id="dashboard" class="hidden">
+      <h2 class="text-2xl font-semibold mb-4">Welcome to Your Dashboard</h2>
+      <div class="grid grid-cols-2 gap-4">
+        <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700" onclick="buyAirtime()">Buy Airtime</button>
+        <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700" onclick="buyData()">Buy Data</button>
+        <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700" onclick="buyCable()">Buy Cable</button>
+        <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700" onclick="payElectricity()">Pay Electricity</button>
+        <button class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700" onclick="complain()">File Complaint</button>
+        <button class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-700" onclick="viewHistory()">View History</button>
+      </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="bg-blue-600 p-4 text-center text-white">
-        <p>&copy; 2025 abdool-data-Application. All rights reserved.</p>
-    </footer>
+    <!-- Sign Up Form -->
+    <div id="signup-form" class="hidden mt-6">
+      <h2 class="text-2xl font-semibold mb-2">Sign Up</h2>
+      <form id="signup-form-content">
+        <input type="email" id="signup-email" placeholder="Email" class="border p-2 my-2 w-full" required />
+        <input type="password" id="signup-password" placeholder="Password" class="border p-2 my-2 w-full" required />
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">Sign Up</button>
+      </form>
+    </div>
 
-    <!-- JavaScript -->
-    <script>
-        // Simulate email verification
-        const verifyEmail = (email) => {
-            alert(`A verification link has been sent to ${email}`);
-        };
+    <!-- Login Form -->
+    <div id="login-form" class="hidden mt-6">
+      <h2 class="text-2xl font-semibold mb-2">Login</h2>
+      <form id="login-form-content">
+        <input type="email" id="login-email" placeholder="Email" class="border p-2 my-2 w-full" required />
+        <input type="password" id="login-password" placeholder="Password" class="border p-2 my-2 w-full" required />
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">Login</button>
+      </form>
+    </div>
 
-        // Show the appropriate form
-        document.getElementById('signup').addEventListener('click', () => {
-            document.getElementById('signup-form').classList.remove('hidden');
-            document.getElementById('login-form').classList.add('hidden');
-        });
+  </div>
 
-        document.getElementById('login').addEventListener('click', () => {
-            document.getElementById('login-form').classList.remove('hidden');
-            document.getElementById('signup-form').classList.add('hidden');
-        });
+  <!-- Footer -->
+  <footer class="bg-blue-600 p-4 mt-12 text-center text-white">
+    <p>&copy; 2025 abdool-data-Application. All rights reserved.</p>
+  </footer>
 
-        // Handle sign up
-        document.getElementById('signup-form-content').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const email = document.getElementById('signup-email').value;
-            verifyEmail(email);
-            document.getElementById('signup-form').classList.add('hidden');
-            document.getElementById('dashboard').classList.remove('hidden');
-        });
+  <!-- JavaScript -->
+  <script>
+    const signupBtn = document.getElementById("signup");
+    const loginBtn = document.getElementById("login");
+    const signupForm = document.getElementById("signup-form");
+    const loginForm = document.getElementById("login-form");
+    const dashboard = document.getElementById("dashboard");
 
-        // Handle login
-        document.getElementById('login-form-content').addEventListener('submit', (e) => {
-            e.preventDefault();
-            document.getElementById('login-form').classList.add('hidden');
-            document.getElementById('dashboard').classList.remove('hidden');
-        });
+    signupBtn.addEventListener("click", () => {
+      signupForm.classList.remove("hidden");
+      loginForm.classList.add("hidden");
+    });
 
-        // Placeholder functions for dashboard actions
-        function buyAirtime() { alert('Buying Airtime'); }
-        function buyData() { alert('Buying Data'); }
-        function buyCable() { alert('Buying Cable'); }
-        function payElectricity() { alert('Paying Electricity'); }
-        function complain() { alert('Filing Complaint'); }
-        function viewHistory() { alert('Viewing History'); }
-    </script>
+    loginBtn.addEventListener("click", () => {
+      loginForm.classList.remove("hidden");
+      signupForm.classList.add("hidden");
+    });
 
+    function verifyEmail(email) {
+      alert("Verification email sent to: " + email);
+    }
+
+    function saveUser(email, password) {
+      const users = JSON.parse(localStorage.getItem("users") || "[]");
+      users.push({ email, password });
+      localStorage.setItem("users", JSON.stringify(users));
+    }
+
+    function findUser(email, password) {
+      const users = JSON.parse(localStorage.getItem("users") || "[]");
+      return users.find(user => user.email === email && user.password === password);
+    }
+
+    document.getElementById("signup-form-content").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const email = document.getElementById("signup-email").value;
+      const password = document.getElementById("signup-password").value;
+      saveUser(email, password);
+      verifyEmail(email);
+      localStorage.setItem("loggedIn", "true");
+      showDashboard();
+    });
+
+    document.getElementById("login-form-content").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const email = document.getElementById("login-email").value;
+      const password = document.getElementById("login-password").value;
+      if (findUser(email, password)) {
+        localStorage.setItem("loggedIn", "true");
+        showDashboard();
+      } else {
+        alert("Invalid credentials.");
+      }
+    });
+
+    function showDashboard() {
+      signupForm.classList.add("hidden");
+      loginForm.classList.add("hidden");
+      dashboard.classList.remove("hidden");
+    }
+
+    window.onload = function () {
+      if (localStorage.getItem("loggedIn") === "true") {
+        showDashboard();
+      }
+    };
+
+    // Dummy functions
+    function buyAirtime() { alert("Buying Airtime..."); }
+    function buyData() { alert("Buying Data..."); }
+    function buyCable() { alert("Paying for Cable TV..."); }
+    function payElectricity() { alert("Paying Electricity..."); }
+    function complain() { alert("Filing Complaint..."); }
+    function viewHistory() { alert("Viewing History..."); }
+  </script>
 </body>
 </html>
