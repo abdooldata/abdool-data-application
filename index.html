@@ -4,149 +4,165 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>abdool-data-Application</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://js.paystack.co/v1/inline.js"></script>
+    <script src="https://js.paystack.co/inline.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.0/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="font-sans bg-gray-100">
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
 
     <!-- Navbar -->
-    <nav class="bg-blue-600 text-white p-4">
-        <div class="max-w-screen-lg mx-auto flex justify-between items-center">
-            <a href="#" class="text-xl font-semibold">abdool-data-Application</a>
+    <nav class="bg-blue-600 p-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="text-white text-3xl font-bold">abdool-data-Application</a>
+            <div>
+                <button id="signup" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">Sign Up</button>
+                <button id="login" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">Login</button>
+            </div>
         </div>
     </nav>
 
-    <!-- Main Section -->
-    <div class="max-w-screen-lg mx-auto p-8">
-        <div id="register" class="hidden">
-            <h2 class="text-2xl font-semibold mb-4">User Registration</h2>
-            <form id="registerForm" class="space-y-4">
-                <input type="text" id="username" placeholder="Enter your username" class="w-full px-4 py-2 border rounded">
-                <input type="email" id="email" placeholder="Enter your email" class="w-full px-4 py-2 border rounded">
-                <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded">Register</button>
-            </form>
-        </div>
-
-        <div id="login" class="hidden">
-            <h2 class="text-2xl font-semibold mb-4">Login</h2>
-            <form id="loginForm" class="space-y-4">
-                <input type="email" id="loginEmail" placeholder="Enter your email" class="w-full px-4 py-2 border rounded">
-                <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded">Login</button>
-            </form>
-        </div>
-
-        <div id="emailVerification" class="hidden">
-            <h2 class="text-2xl font-semibold mb-4">Email Verification</h2>
-            <button id="verifyEmailButton" class="w-full bg-blue-600 text-white py-2 rounded">Verify Email</button>
-        </div>
-
-        <div id="upload" class="hidden">
-            <h2 class="text-2xl font-semibold mb-4">Upload Dataset</h2>
-            <form onsubmit="event.preventDefault(); uploadData()" class="space-y-4">
-                <input type="file" accept=".csv,.json" required class="w-full px-4 py-2 border rounded">
-                <button type="submit" class="w-full bg-green-600 text-white py-2 rounded">Upload</button>
-            </form>
-        </div>
-
-        <div id="payment" class="hidden">
-            <h2 class="text-2xl font-semibold mb-4">Payment</h2>
-            <form id="paymentForm" class="space-y-4">
-                <input type="number" id="amount" placeholder="Enter amount to pay (NGN)" class="w-full px-4 py-2 border rounded">
-                <button type="submit" class="w-full bg-yellow-500 text-white py-2 rounded">Pay Now</button>
-            </form>
-        </div>
-
+    <!-- Main Content -->
+    <div id="main-content" class="p-4 max-w-7xl mx-auto">
         <div id="dashboard" class="hidden">
-            <h2 class="text-2xl font-semibold mb-4">Dashboard</h2>
-            <div class="space-y-4">
-                <div id="status" class="text-lg">No data uploaded yet.</div>
-                <button onclick="logout()" class="w-full bg-red-600 text-white py-2 rounded">Logout</button>
+            <h2 class="text-2xl font-semibold">Welcome to Your Dashboard</h2>
+            <!-- Dashboard content -->
+            <div class="mt-4">
+                <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700" onclick="buyAirtime()">Buy Airtime</button>
+                <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700" onclick="buyData()">Buy Data</button>
+                <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700" onclick="buyCable()">Buy Cable</button>
+                <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700" onclick="payElectricity()">Pay Electricity</button>
+                <button class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700" onclick="complain()">File Complaint</button>
+                <button class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-700" onclick="viewHistory()">View History</button>
             </div>
+        </div>
+
+        <!-- SignUp/ Login Forms -->
+        <div id="signup-form" class="hidden">
+            <h2 class="text-2xl font-semibold">Sign Up</h2>
+            <form id="signup-form-content">
+                <input type="email" id="signup-email" placeholder="Email" class="border p-2 my-2 w-full" required>
+                <input type="password" id="signup-password" placeholder="Password" class="border p-2 my-2 w-full" required>
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">Sign Up</button>
+            </form>
+        </div>
+
+        <div id="login-form" class="hidden">
+            <h2 class="text-2xl font-semibold">Login</h2>
+            <form id="login-form-content">
+                <input type="email" id="login-email" placeholder="Email" class="border p-2 my-2 w-full" required>
+                <input type="password" id="login-password" placeholder="Password" class="border p-2 my-2 w-full" required>
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">Login</button>
+            </form>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white p-4">
-        <div class="text-center">
-            <p>Contact us at: <span class="font-semibold">07065631640</span></p>
-        </div>
+    <footer class="bg-blue-600 p-4 text-center text-white">
+        <p>&copy; 2025 abdool-data-Application. All rights reserved.</p>
     </footer>
 
+    <!-- JavaScript -->
     <script>
-        let userData = null;
-
-        // Simulated registration function
-        document.getElementById('registerForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            userData = {
-                username: document.getElementById('username').value,
-                email: document.getElementById('email').value,
-            };
-            alert('Registration successful! Please verify your email.');
-            showSection('emailVerification');
-        });
-
-        // Simulated login function
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            if (userData && userData.email === document.getElementById('loginEmail').value) {
-                showSection('upload');
-            } else {
-                alert('Invalid email!');
-            }
-        });
-
         // Simulate email verification
-        document.getElementById('verifyEmailButton').addEventListener('click', function() {
-            alert('Email verified successfully!');
-            showSection('upload');
+        const verifyEmail = (email) => {
+            alert(`A verification link has been sent to ${email}`);
+        };
+
+        // Show the appropriate form
+        document.getElementById('signup').addEventListener('click', () => {
+            document.getElementById('signup-form').classList.remove('hidden');
+            document.getElementById('login-form').classList.add('hidden');
         });
 
-        // Upload data
-        function uploadData() {
-            document.getElementById('status').innerText = 'Data has been uploaded!';
-            showSection('dashboard');
-        }
+        document.getElementById('login').addEventListener('click', () => {
+            document.getElementById('login-form').classList.remove('hidden');
+            document.getElementById('signup-form').classList.add('hidden');
+        });
 
-        // Paystack Payment Integration
-        document.getElementById('paymentForm').addEventListener('submit', function(e) {
+        // Handle sign up
+        document.getElementById('signup-form-content').addEventListener('submit', (e) => {
             e.preventDefault();
-            const amount = document.getElementById('amount').value * 100; // Paystack expects kobo
-            payWithPaystack(amount);
+            const email = document.getElementById('signup-email').value;
+            verifyEmail(email);
+            document.getElementById('signup-form').classList.add('hidden');
+            document.getElementById('dashboard').classList.remove('hidden');
         });
 
-        function payWithPaystack(amount) {
-            var handler = PaystackPop.setup({
-                key: 'pk_test_yourpaystackpublickey', // pk_live_fefa4cab21e99bd551e0979a445038b389d9cfea
-                email: userData.email,
-                amount: amount,
-                currency: 'NGN',
-                callback: function(response) {
-                    alert('Payment successful! Payment reference: ' + response.reference);
-                    showSection('dashboard');
-                },
-                onClose: function() {
-                    alert('Payment window closed.');
-                }
-            });
-            handler.openIframe();
-        }
+        // Handle login
+        document.getElementById('login-form-content').addEventListener('submit', (e) => {
+            e.preventDefault();
+            document.getElementById('login-form').classList.add('hidden');
+            document.getElementById('dashboard').classList.remove('hidden');
+        });
 
-        // Show specific section
-        function showSection(section) {
-            const sections = ['register', 'login', 'emailVerification', 'upload', 'payment', 'dashboard'];
-            sections.forEach(sec => document.getElementById(sec).classList.add('hidden'));
-            document.getElementById(section).classList.remove('hidden');
-        }
-
-        // Logout
-        function logout() {
-            userData = null;
-            showSection('login');
-        }
-
-        // Start the app with login page
-        showSection('login');
+        // Placeholder functions for dashboard actions
+        function buyAirtime() { alert('Buying Airtime'); }
+        function buyData() { alert('Buying Data'); }
+        function buyCable() { alert('Buying Cable'); }
+        function payElectricity() { alert('Paying Electricity'); }
+        function complain() { alert('Filing Complaint'); }
+        function viewHistory() { alert('Viewing History'); }
     </script>
+
 </body>
 </html>
+
+Final README.md
+
+# abdool-data-Application
+
+**abdool-data-Application** is a simple all-in-one web app for uploading, managing, and accessing data easily and securely. It supports user registration, login, email verification (simulated), data uploads, and flexible Paystack payments.
+
+## Features
+
+- User Registration and Login  
+- Email Verification (Simulated)  
+- Upload CSV or JSON Datasets  
+- User Dashboard with Data Overview  
+- Flexible Paystack Integration  
+  - Enter any amount you wish to pay  
+  - Not required before accessing features  
+- Responsive and Modern UI (TailwindCSS)  
+- Fully contained in one HTML file  
+- Free and Open Source  
+
+## Live App
+
+You can access the app here:  
+[https://abdooldata.github.io/abdool-data-application/](https://abdooldata.github.io/abdool-data-application/)
+
+## How to Deploy (Optional)
+
+To deploy your own version on GitHub Pages:
+
+1. Fork or clone this repository:
+   ```bash
+   git clone https://github.com/yourusername/abdool-data-application.git
+   cd abdool-data-application
+
+2. Push to GitHub if needed:
+
+git add .
+git commit -m "Initial commit"
+git push origin main
+
+
+3. On GitHub:
+
+
+
+Go to Settings > Pages
+Under Source, select the main branch
+Select / (root) folder
+Click Save
+
+Your app will be live at:
+https://yourusername.github.io/abdool-data-application/
+
+
+---
+
+Contact
+
+For support or feedback, reach out via:
+Email: auh439@gmail.com
+Phone: 07065631640
