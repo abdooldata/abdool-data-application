@@ -1,123 +1,146 @@
+<!-- Abdool Data Application - All-in-One File -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Abdool Data Application</title>
+  <title>abdool-data-Application</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <script src="https://js.paystack.co/v1/inline.js"></script>
   <style>
-    .hidden-section { display: none; }
+    .hidden-section {
+      display: none;
+    }
   </style>
 </head>
+
 <body class="bg-gray-100 text-gray-800">
+  <!-- Header -->
+  <header class="bg-white shadow p-4 flex justify-between items-center">
+    <div class="flex items-center gap-2">
+      <img src="https://raw.githubusercontent.com/abdooldata/abdool-data-application/main/logo.png" alt="Logo" class="w-10 h-10 rounded-full">
+      <h1 class="text-xl font-bold">abdool-data-Application</h1>
+    </div>
+    <nav class="space-x-4">
+      <button onclick="showSection('landing')" class="text-blue-600 hover:underline">Home</button>
+      <button onclick="showSection('login')" class="text-blue-600 hover:underline">Login</button>
+      <button onclick="showSection('signup')" class="text-blue-600 hover:underline">Sign Up</button>
+      <button onclick="showSection('dashboard')" class="text-blue-600 hover:underline">Dashboard</button>
+      <button onclick="showSection('upload')" class="text-blue-600 hover:underline">Upload</button>
+      <button onclick="showSection('payment')" class="text-blue-600 hover:underline">Donate</button>
+    </nav>
+  </header>
 
-<!-- Navigation -->
-<header class="bg-white shadow p-4 flex justify-between items-center">
-  <h1 class="text-xl font-bold">Abdool Data App</h1>
-  <nav class="space-x-4">
-    <button onclick="showSection('login')" class="text-blue-600 hover:underline">Login</button>
-    <button onclick="showSection('signup')" class="text-blue-600 hover:underline">Sign Up</button>
-    <button onclick="showSection('dashboard')" class="text-blue-600 hover:underline">Dashboard</button>
-    <button onclick="showSection('upload')" class="text-blue-600 hover:underline">Upload</button>
-    <button onclick="showSection('payment')" class="text-blue-600 hover:underline">Pay</button>
-  </nav>
-</header>
+  <!-- Landing -->
+  <section id="landing" class="p-10 text-center">
+    <h2 class="text-3xl font-semibold mb-4">Welcome to abdool-data-Application</h2>
+    <p class="text-gray-600">Upload, manage and explore your datasets freely.</p>
+  </section>
 
-<!-- Landing Page -->
-<section class="p-10 text-center" id="landing">
-  <h2 class="text-3xl font-semibold mb-4">Welcome to Abdool Data App</h2>
-  <p class="text-gray-600">Upload, view, and manage your data securely and easily.</p>
-</section>
+  <!-- Sign Up -->
+  <section id="signup" class="hidden-section flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-xl shadow-md w-full max-w-md">
+      <h2 class="text-2xl font-bold mb-6 text-center">Create an Account</h2>
+      <form onsubmit="event.preventDefault(); verifyEmail('signup');" class="space-y-4">
+        <input id="signup-email" type="email" placeholder="Email" required class="w-full px-4 py-2 border rounded" />
+        <input type="password" placeholder="Password" required class="w-full px-4 py-2 border rounded" />
+        <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded">Sign Up</button>
+      </form>
+    </div>
+  </section>
 
-<!-- Sign Up -->
-<section id="signup" class="hidden-section flex items-center justify-center min-h-screen">
-  <div class="bg-white p-8 rounded-xl shadow-md w-full max-w-md">
-    <h2 class="text-2xl font-bold mb-6 text-center">Create an Account</h2>
-    <form onsubmit="event.preventDefault(); showSection('dashboard')" class="space-y-4">
-      <input type="email" placeholder="Email" required class="w-full px-4 py-2 border rounded" />
-      <input type="password" placeholder="Password" required class="w-full px-4 py-2 border rounded" />
-      <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded">Sign Up</button>
-    </form>
-  </div>
-</section>
+  <!-- Login -->
+  <section id="login" class="hidden-section flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-xl shadow-md w-full max-w-md">
+      <h2 class="text-2xl font-bold mb-6 text-center">Login</h2>
+      <form onsubmit="event.preventDefault(); verifyEmail('login');" class="space-y-4">
+        <input id="login-email" type="email" placeholder="Email" required class="w-full px-4 py-2 border rounded" />
+        <input type="password" placeholder="Password" required class="w-full px-4 py-2 border rounded" />
+        <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded">Login</button>
+      </form>
+    </div>
+  </section>
 
-<!-- Login -->
-<section id="login" class="hidden-section flex items-center justify-center min-h-screen">
-  <div class="bg-white p-8 rounded-xl shadow-md w-full max-w-md">
-    <h2 class="text-2xl font-bold mb-6 text-center">Login</h2>
-    <form onsubmit="event.preventDefault(); showSection('dashboard')" class="space-y-4">
-      <input type="email" placeholder="Email" required class="w-full px-4 py-2 border rounded" />
-      <input type="password" placeholder="Password" required class="w-full px-4 py-2 border rounded" />
-      <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded">Login</button>
-    </form>
-  </div>
-</section>
+  <!-- Dashboard -->
+  <section id="dashboard" class="hidden-section p-6">
+    <h2 class="text-2xl font-semibold mb-4">Your Dashboard</h2>
+    <button onclick="showSection('upload')" class="mb-4 bg-blue-600 text-white px-4 py-2 rounded">Upload New Data</button>
+    <div class="bg-white p-4 rounded shadow">
+      <p class="text-gray-600">No data uploaded yet.</p>
+    </div>
+  </section>
 
-<!-- Dashboard -->
-<section id="dashboard" class="hidden-section p-6">
-  <h2 class="text-2xl font-semibold mb-4">Your Data Overview</h2>
-  <button onclick="showSection('upload')" class="mb-4 bg-blue-600 text-white px-4 py-2 rounded">Upload New Data</button>
-  <div class="bg-white p-4 rounded shadow">
-    <p class="text-gray-600">No data uploaded yet.</p>
-  </div>
-</section>
+  <!-- Upload -->
+  <section id="upload" class="hidden-section flex items-center justify-center min-h-screen">
+    <div class="bg-white p-6 rounded shadow-md w-full max-w-lg">
+      <h2 class="text-2xl font-bold mb-4">Upload Dataset</h2>
+      <form onsubmit="event.preventDefault(); alert('Data Uploaded!'); showSection('dashboard')" class="space-y-4">
+        <input type="file" accept=".csv,.json" required class="w-full border px-3 py-2 rounded" />
+        <button type="submit" class="w-full bg-green-600 text-white py-2 rounded">Upload</button>
+      </form>
+    </div>
+  </section>
 
-<!-- Upload -->
-<section id="upload" class="hidden-section flex items-center justify-center min-h-screen">
-  <div class="bg-white p-6 rounded shadow-md w-full max-w-lg">
-    <h2 class="text-2xl font-bold mb-4">Upload Dataset</h2>
-    <form onsubmit="event.preventDefault(); alert('Data Uploaded!'); showSection('dashboard')" class="space-y-4">
-      <input type="file" accept=".csv,.json" required class="w-full border px-3 py-2 rounded" />
-      <button type="submit" class="w-full bg-green-600 text-white py-2 rounded">Upload</button>
-    </form>
-  </div>
-</section>
+  <!-- Payment -->
+  <section id="payment" class="hidden-section flex items-center justify-center min-h-screen">
+    <div class="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full">
+      <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">Support the App</h2>
+      <p class="text-sm text-gray-500 text-center mb-6">Make a donation to support abdool-data-Application.</p>
+      <input id="email" type="email" placeholder="Enter your email"
+        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4" required />
+      <input id="amount" type="number" placeholder="Amount (₦)"
+        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4" required />
+      <button onclick="payWithPaystack()"
+        class="w-full bg-blue-600 hover:bg-blue-700 transition text-white font-semibold py-2 px-4 rounded-lg">
+        Pay Now
+      </button>
+      <p class="mt-6 text-center text-sm text-gray-500">No minimum. We appreciate your support!</p>
+    </div>
+  </section>
 
-<!-- Payment -->
-<section id="payment" class="hidden-section flex items-center justify-center min-h-screen">
-  <div class="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full">
-    <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">Pay with Paystack</h2>
-    <p class="text-sm text-gray-500 text-center mb-6">Secure payment for your Abdool Data App plan.</p>
-    <input id="email" type="email" placeholder="Enter your email"
-      class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4" required />
-    <button onclick="payWithPaystack()"
-      class="w-full bg-blue-600 hover:bg-blue-700 transition text-white font-semibold py-2 px-4 rounded-lg">
-      Pay ₦2000
-    </button>
-    <p class="mt-6 text-center text-sm text-gray-500">You will be redirected after successful payment.</p>
-  </div>
-</section>
+  <!-- Footer -->
+  <footer class="bg-white shadow p-4 text-center mt-10">
+    <p class="text-sm text-gray-500">Contact: 07065631640</p>
+    <p class="text-sm text-gray-400">&copy; 2025 abdool-data-Application</p>
+  </footer>
 
-<script>
-  function showSection(id) {
-    document.querySelectorAll('section').forEach(section => section.classList.add('hidden-section'));
-    document.getElementById(id).classList.remove('hidden-section');
-  }
-
-  function payWithPaystack() {
-    const email = document.getElementById('email').value;
-    if (!email) {
-      alert("Please enter your email");
-      return;
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('section').forEach(section => section.classList.add('hidden-section'));
+      document.getElementById(id).classList.remove('hidden-section');
     }
-    let handler = PaystackPop.setup({
-      key: 'pk_live_fefa4cab21e99bd551e0979a445038b389d9cfea',
-      email: email,
-      amount: 200000,
-      currency: "NGN",
-      ref: '' + Math.floor(Math.random() * 1000000000 + 1),
-      callback: function(response) {
-        alert('Payment complete! Reference: ' + response.reference);
-        showSection('dashboard');
-      },
-      onClose: function() {
-        alert('Payment window closed.');
-      }
-    });
-    handler.openIframe();
-  }
-</script>
 
+    function verifyEmail(mode) {
+      const email = mode === 'login' ? document.getElementById('login-email').value : document.getElementById('signup-email').value;
+      alert('Verification email sent to: ' + email + '\n(Simulation only)');
+      showSection('dashboard');
+    }
+
+    function payWithPaystack() {
+      const email = document.getElementById('email').value;
+      const amount = parseFloat(document.getElementById('amount').value);
+      if (!email || !amount || amount <= 0) {
+        alert("Please enter valid email and amount");
+        return;
+      }
+      let handler = PaystackPop.setup({
+        key: 'pk_live_fefa4cab21e99bd551e0979a445038b389d9cfea',
+        email: email,
+        amount: amount * 100,
+        currency: "NGN",
+        ref: '' + Math.floor(Math.random() * 1000000000 + 1),
+        callback: function (response) {
+          alert('Payment complete! Reference: ' + response.reference);
+          showSection('dashboard');
+        },
+        onClose: function () {
+          alert('Payment window closed.');
+        }
+      });
+      handler.openIframe();
+    }
+  </script>
 </body>
+
 </html>
