@@ -106,7 +106,6 @@
 </body>
 </html>
 
-Final README.md
 
 # abdool-data-Application
 
@@ -156,7 +155,7 @@ Select / (root) folder
 Click Save
 
 Your app will be live at:
-https://yourusername.github.io/abdool-data-application/
+https://abdooo-data-application.github.io/abdool-data-application/
 
 
 ---
